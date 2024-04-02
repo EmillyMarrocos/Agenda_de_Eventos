@@ -1,19 +1,33 @@
-lista_eventos = []
-
+listaev = []
 class AgendaEventos :
+    def __init__(self, eventos):
+        self.eventos = eventos
+        
+    def adicionar_ev(self, evento):
+        listaev.append(evento)
+        print('Evento ', evento, " adicionado!")
 
-    def adicionar_ev():
-        novo_ev = input("Adicionar eventos: ")
-        print (novo_ev)
-        lista_eventos.append(novo_ev)
+    def editar_ev(self, evento,  novo_evento):
+        listaev.append(novo_evento)
+        listaev.remove(evento)
+        print('Lista de eventos atualizada: ')
+        print(listaev)
 
-    def editar_ev():
-        edit_ev = input("Digite o evento que deseja editar: ")
-        print(edit_ev)
-        novo_edit = input("Digite as alterações: ")
-        print ("evento editado: ", novo_edit)
+    def remover_ev(self, evento):
+        print("Eventos removidos: ", evento)
+        listaev.remove(evento)
 
-    def remover_ev():
-        remo_ev = print ("Digite o evento que deseja remover: ")
-        print("Eventos removidos: ", remo_ev)
-        lista_eventos.remove(remo_ev)
+    def listar_ev(self):
+        print('Lista de Eventos cadastrados: ')
+        print(listaev)
+
+        
+ev01 = AgendaEventos('Festa')
+ev02 = AgendaEventos('Premiação')
+AgendaEventos.adicionar_ev(ev02, 'Premiação')
+AgendaEventos.adicionar_ev(ev01, 'Festa')
+print('')
+AgendaEventos.editar_ev(ev01, 'Festa', 'Comemoração')
+print('')
+AgendaEventos.remover_ev(ev01, 'Comemoração')
+AgendaEventos.listar_ev(ev01)
